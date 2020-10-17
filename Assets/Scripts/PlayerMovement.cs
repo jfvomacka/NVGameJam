@@ -4,10 +4,15 @@ using UnityEngine;
 
 namespace Game
 {
+    [RequireComponent(typeof(Rigidbody2D))]
+    [RequireComponent(typeof(CircleCollider2D))]
     public class PlayerMovement : MonoBehaviour
     {
+        [SerializeField]
+        private float speed;
+        private Rigidbody2D rigidbody2D;
+        private CircleCollider2D collider;
 
-        public float speed;
         private Vector2 direction;
         private bool teleport;
         private bool teleportedLastFrame;
@@ -15,15 +20,21 @@ namespace Game
         private float teleportCooldown;
 
         private Animator animator;
-        private BoxCollider2D collider = null;
 
         private bool CanTeleport()
         {
-            Vector3 location = direction * speed * Time.deltaTime;
-            Ray ray = new Ray(transform.position, location);
-            RaycastHit hit;
+            Vector2 location = transform.position + (new Vector3(direction.normalized.x, direction.normalized.y, 0.0f) * TELEPORT_DISTANCE);
 
-            return GetComponent<Collider>().Raycast(ray, out hit, 100.0f);
+            RaycastHit2D hit = Physics2D.Raycast(transform.position, direction.normalized, TELEPORT_DISTANCE, LayerMask.GetMask("No Teleport")); Debug.DrawRay(transform.position, (direction.normalized * TELEPORT_DISTANCE), Color.green, 5.0f);
+            Debug.DrawRay(transform.position, (direction.normalized * TELEPORT_DISTANCE), Color.green, 5.0f);
+
+            if (hit.collider != null)
+            {
+                Debug.Log(hit.collider.name);
+                return false;
+            }
+
+            return true;
         }
 
         // Start is called before the first frame update
@@ -38,7 +49,6 @@ namespace Game
             transform.position = new Vector3(0, 0, -1);
 
             animator = GetComponent<Animator>();
-            collider = gameObject.AddComponent<BoxCollider2D>();
         }
 
         // Update is called once per frame
