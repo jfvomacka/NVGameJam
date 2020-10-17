@@ -17,6 +17,15 @@ namespace Game
         private Animator animator;
         private BoxCollider2D collider = null;
 
+        private bool CanTeleport()
+        {
+            Vector3 location = direction * speed * Time.deltaTime;
+            Ray ray = new Ray(transform.position, location);
+            RaycastHit hit;
+
+            return GetComponent<Collider>().Raycast(ray, out hit, 100.0f);
+        }
+
         // Start is called before the first frame update
         void Start()
         {
@@ -37,7 +46,7 @@ namespace Game
         {
             TakeInput();
         
-            if(teleport && !teleportedLastFrame && (teleportCooldown >= 2f))
+            if(teleport && !teleportedLastFrame && (teleportCooldown >= 2f) && CanTeleport())
             {
                 MoveTeleport();
                 teleport = false;

@@ -48,6 +48,8 @@ namespace Game
             //Get a component reference to the attached BoardManager script
             map = GetComponent<MapManager>();
 
+            player = GameObject.FindGameObjectWithTag("Player").transform;
+
             //Call the InitGame function to initialize the first level 
             InitGame();
         }

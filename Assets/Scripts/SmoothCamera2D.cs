@@ -21,7 +21,7 @@ namespace Game
             transform.position = new Vector3(0, 0, -CAMERA_HEIGHT);
         
             Camera.main.fieldOfView = 45f;
-
+            target = GameObject.FindGameObjectWithTag("Player").transform;
         }
 
         // Update is called once per frame
