@@ -17,12 +17,13 @@ public class PlayerMovement : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        speed = 5;
+        speed = 3;
         teleport = false;
         teleportedLastFrame = false;
         teleportCooldown = 3f;
 
-        transform.localScale = new Vector3(3, 3, 3);
+        transform.localScale = new Vector3(2, 2, 2);
+        transform.position = new Vector3(0, 0, -1);
 
         animator = GetComponent<Animator>();
     }

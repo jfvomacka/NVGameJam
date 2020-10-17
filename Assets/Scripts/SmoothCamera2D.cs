@@ -5,13 +5,20 @@ using UnityEngine;
 public class SmoothCamera2D : MonoBehaviour
 {
 
-    public float dampTime = 0.05f;
+    public float dampTime;
     private Vector3 velocity = Vector3.zero;
     public Transform target;
+    //public Camera camera;
+
+    private const float CAMERA_HEIGHT = 10f;
 
     // Start is called before the first frame update
     void Start()
     {
+        dampTime = 0.25f;
+        transform.position = new Vector3(0, 0, -CAMERA_HEIGHT);
+        
+        Camera.main.fieldOfView = 45f;
 
     }
 
