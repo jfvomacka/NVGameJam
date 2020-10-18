@@ -77,9 +77,21 @@ namespace Game
 
         }
 
-        private void Die()
+        void OnTriggerEnter(Collider other)
+        {
+            Debug.Log(other.tag);
+            if (other.tag == "Player")
+            {
+                //Debug.Log("Spiked!");
+                //Game.PlayerMovement p = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerMovement>();
+                //p.Die();
+            }
+        }
+
+        public void Die()
         {
             GameManager.instance.GameOver();
+            Destroy(gameObject);
         }
 
         

@@ -20,9 +20,11 @@ namespace Game
 
         void OnTriggerEnter(Collider other)
         {
+            Debug.Log(other.tag);
             if (other.tag == "Player")
             {
-                Game.PlayerMovement p = gameObject.FindGameObjectWithTag("Player").GetComponent<PlayerMovement>();
+                Debug.Log("Spiked!");
+                Game.PlayerMovement p = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerMovement>();
                 p.Die();
             }
         }
