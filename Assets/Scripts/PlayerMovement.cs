@@ -101,7 +101,7 @@ namespace Game
             }
             else
             {
-                Debug.Log("Dead!");
+                GameManager.instance.GameOver();
             }
         }
 

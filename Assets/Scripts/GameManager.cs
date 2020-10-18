@@ -85,7 +85,7 @@ namespace Game
         public void GameOver()
         {
 
-            playerObj.GetComponent<PlayerMovement>().Restart();
+            Debug.Log("Dead!");
         }
 
         public bool GameIsOver()
