@@ -29,7 +29,7 @@ namespace Game
         void Update()
         {
 
-            if(GameManager.instance.GameIsOver())
+            if(GameManager.instance.GameIsOver() || !GameManager.instance.GameMove())
             {
                 return;
             }

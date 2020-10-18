@@ -21,6 +21,8 @@ namespace Game
         private GameObject playerObj;
         public GameObject completeUI;
 
+        private bool gameMove;
+
         //Awake is always called before any Start functions
         void Awake()
         {
@@ -57,6 +59,8 @@ namespace Game
 
             //Clear any Enemy objects in our List to prepare for next level.
             enemies.Clear();
+
+            gameMove = true;
             
 
         }
@@ -87,17 +91,31 @@ namespace Game
         {
 
             Debug.Log("Dead!");
+            gameMove = false;
         }
 
         public void GameWin()
         {
+            gameMove = false;
+            //enabled = false;
             completeUI.SetActive(true);
             Debug.Log("Win!");
+            
         }
 
         public bool GameIsOver()
         {
             return !enabled;
+        }
+
+        public bool GameMove()
+        {
+            return gameMove;
+        }
+
+        public void StartGameMove()
+        {
+            gameMove = true;
         }
     }
 }

@@ -55,9 +55,6 @@ namespace Game
             teleport = false;
             teleportedLastFrame = false;
 
-            // transform.localScale = new Vector3(2, 2, 2);
-            // transform.position = new Vector3(0, 0, -1);
-
             animator = GetComponent<Animator>();
             material = GetComponent<Renderer>().sharedMaterial;
 
@@ -69,6 +66,12 @@ namespace Game
         // Update is called once per frame
         void Update()
         {
+
+            if(GameManager.instance.GameIsOver() || !GameManager.instance.GameMove())
+            {
+                return;
+            }
+
             TakeInput();
         
             if(teleport && !teleportedLastFrame && (teleportCooldown >= 2f) && CanTeleport())
@@ -86,8 +89,7 @@ namespace Game
             material.SetFloat("Vector1_D926CC99", Mathf.Lerp(dissolveAmount, 0.0f, teleportCooldown));
             teleportedLastFrame = teleport;
             teleportCooldown += Time.deltaTime;
-
-           // SetAnimation();
+            
         }
 
         public void Restart()
