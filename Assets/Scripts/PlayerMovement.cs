@@ -12,12 +12,16 @@ namespace Game
         private float speed;
         private Rigidbody2D rigidbody2D;
         private CircleCollider2D collider;
+        private Material material;
 
         private Vector2 direction;
         private bool teleport;
         private bool teleportedLastFrame;
         private const float TELEPORT_DISTANCE = 3.0f;
         private float teleportCooldown;
+        private float dissolveAmount = 0.0f;
+        private float startDissolve = 0.0f;
+        private float endDissolve = 1.0f;
 
         private Animator animator;
 
@@ -49,6 +53,7 @@ namespace Game
             transform.position = new Vector3(0, 0, -1);
 
             animator = GetComponent<Animator>();
+            material = GetComponent<Renderer>().sharedMaterial;
         }
 
         // Update is called once per frame
@@ -58,6 +63,7 @@ namespace Game
         
             if(teleport && !teleportedLastFrame && (teleportCooldown >= 2f) && CanTeleport())
             {
+                dissolveAmount = 1.00f;
                 MoveTeleport();
                 teleport = false;
                 teleportCooldown = 0f;
@@ -67,6 +73,7 @@ namespace Game
                 Move();
             }
 
+            material.SetFloat("Vector1_D926CC99", Mathf.Lerp(dissolveAmount, 0.0f, teleportCooldown));
             teleportedLastFrame = teleport;
             teleportCooldown += Time.deltaTime;
 
@@ -88,7 +95,6 @@ namespace Game
 
         private void MoveTeleport()
         {
-        
             transform.Translate(direction.normalized * TELEPORT_DISTANCE);
         }
 
