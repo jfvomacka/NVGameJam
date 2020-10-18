@@ -87,9 +87,20 @@ namespace Game
 
             //Disable this GameManager.
             enabled = false;
-
+            //enemies.Clear();
+            while(enemies.Count > 0)
+            {
+                EnemyAI e = enemies[0];
+                enemies.Remove(e);
+                Destroy(e);
+            }
 
             Debug.Log("Game over!");
+        }
+
+        public bool GameIsOver()
+        {
+            return !enabled;
         }
     }
 }

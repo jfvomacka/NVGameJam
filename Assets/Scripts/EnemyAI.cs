@@ -21,7 +21,9 @@ namespace Game
             speed = 2.5f;
             player = GameObject.FindGameObjectWithTag("Player").transform;
 
-            agent.destination = player.position;
+            agent.destination = transform.position;
+
+            GameManager.instance.AddEnemyToList(this);
         }
 
         void Update()
@@ -55,7 +57,17 @@ namespace Game
             nextNode = path[0];
             */
 
-            agent.destination = player.position;
+            if(GameManager.instance.GameIsOver())
+            {
+                return;
+            }
+
+            float dist = (player.position - transform.position).magnitude;
+            if(dist <= 8f)
+            {
+                agent.destination = player.position;
+            }
+            
         }
     }
 }
