@@ -9,7 +9,7 @@ namespace Game
     public class PlayerMovement : MonoBehaviour
     {
         [SerializeField]
-        private float speed;
+        private float speed =3.0f;
         private Rigidbody2D rigidbody2D;
         private CircleCollider2D collider;
         private Material material;
@@ -18,7 +18,9 @@ namespace Game
         private bool teleport;
         private bool teleportedLastFrame;
         private const float TELEPORT_DISTANCE = 3.0f;
-        private float teleportCooldown;
+
+        [SerializeField]
+        private float teleportCooldown = 3.0f;
         private float dissolveAmount = 0.0f;
         private float startDissolve = 0.0f;
         private float endDissolve = 1.0f;
@@ -46,13 +48,11 @@ namespace Game
         // Start is called before the first frame update
         void Start()
         {
-            speed = 3;
             teleport = false;
             teleportedLastFrame = false;
-            teleportCooldown = 3f;
 
             // transform.localScale = new Vector3(2, 2, 2);
-            transform.position = new Vector3(0, 0, -1);
+            // transform.position = new Vector3(0, 0, -1);
 
             animator = GetComponent<Animator>();
             material = GetComponent<Renderer>().sharedMaterial;
