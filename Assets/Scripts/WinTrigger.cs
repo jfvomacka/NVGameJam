@@ -5,7 +5,7 @@ using UnityEngine;
 
 namespace Game
 {
-    public class EndTrigger : MonoBehaviour
+    public class WinTrigger : MonoBehaviour
     {
         public GameManager gameManager;
 
