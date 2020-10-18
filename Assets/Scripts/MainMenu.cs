@@ -12,6 +12,7 @@ namespace Game
         {
             FindObjectOfType<DialogueManager>().StartDialogue(dialogue);
             //SceneManager.LoadScene(1);
+            GameObject.FindGameObjectWithTag("ContinueAnim").GetComponent<Animator>().SetTrigger("PlayButton");
             Destroy(gameObject);
         }
 

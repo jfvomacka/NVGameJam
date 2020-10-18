@@ -57,7 +57,7 @@ namespace Game
             animator = GetComponent<Animator>();
             material = GetComponent<Renderer>().sharedMaterial;
 
-            START_POS = transform.position;
+            START_POS = new Vector3(transform.position.x, transform.position.y, transform.position.z);
         }
 
         // Update is called once per frame

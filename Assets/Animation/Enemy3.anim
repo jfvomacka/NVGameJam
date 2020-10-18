@@ -6,7 +6,7 @@ AnimationClip:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: WalkLeft
+  m_Name: Enemy3
   serializedVersion: 6
   m_Legacy: 0
   m_Compressed: 0
@@ -20,9 +20,9 @@ AnimationClip:
   m_PPtrCurves:
   - curve:
     - time: 0
-      value: {fileID: 21300000, guid: 869a6bca1260c0942979817618a51048, type: 3}
+      value: {fileID: 21300000, guid: 54228e1f0b3d69342846fcdb2bd9c0e7, type: 3}
     - time: 0.083333336
-      value: {fileID: 21300000, guid: ee8e9f25389ae8849ad59f96de341819, type: 3}
+      value: {fileID: 21300000, guid: 9324640dfd90a9c48a86679312d3fae3, type: 3}
     attribute: m_Sprite
     path: 
     classID: 212
@@ -42,8 +42,8 @@ AnimationClip:
       customType: 23
       isPPtrCurve: 1
     pptrCurveMapping:
-    - {fileID: 21300000, guid: 869a6bca1260c0942979817618a51048, type: 3}
-    - {fileID: 21300000, guid: ee8e9f25389ae8849ad59f96de341819, type: 3}
+    - {fileID: 21300000, guid: 54228e1f0b3d69342846fcdb2bd9c0e7, type: 3}
+    - {fileID: 21300000, guid: 9324640dfd90a9c48a86679312d3fae3, type: 3}
   m_AnimationClipSettings:
     serializedVersion: 2
     m_AdditiveReferencePoseClip: {fileID: 0}

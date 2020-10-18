@@ -48,7 +48,7 @@ namespace Game
             if (collision.transform.tag == "Player")
             {
                 //Destroy(collision.gameObject);
-                GameManager.instance.GameOver();
+                //GameManager.instance.GameOver();
                 GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerMovement>().Restart();
             }
         }
