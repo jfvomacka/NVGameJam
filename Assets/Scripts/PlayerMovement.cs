@@ -71,7 +71,18 @@ namespace Game
             teleportCooldown += Time.deltaTime;
 
             SetAnimation();
+
+
+
+
         }
+
+        private void Die()
+        {
+            GameManager.instance.GameOver();
+        }
+
+        
 
         private void Move()
         {
