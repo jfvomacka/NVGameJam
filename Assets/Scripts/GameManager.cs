@@ -20,6 +20,7 @@ namespace Game
 
         private GameObject playerObj;
         public GameObject completeUI;
+        public GameObject deathUI;
 
         private bool gameMove;
 
@@ -40,6 +41,8 @@ namespace Game
 
             //Sets this to not be destroyed when reloading scene
             DontDestroyOnLoad(gameObject);
+            DontDestroyOnLoad(completeUI);
+            DontDestroyOnLoad(deathUI);
 
             //Assign enemies to a new List of Enemy objects.
             enemies = new List<EnemyAI>();
@@ -89,17 +92,14 @@ namespace Game
         //GameOver is called when the player reaches 0 food points
         public void GameOver()
         {
-
-            Debug.Log("Dead!");
             gameMove = false;
+            deathUI.SetActive(true);
         }
 
         public void GameWin()
         {
             gameMove = false;
-            //enabled = false;
             completeUI.SetActive(true);
-            Debug.Log("Win!");
             
         }
 

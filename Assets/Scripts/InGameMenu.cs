@@ -10,6 +10,8 @@ namespace Game
 
         public void PlayAgain()
         {
+            GameManager.instance.deathUI.SetActive(false);
+            GameManager.instance.completeUI.SetActive(false);
             SceneManager.LoadScene(1);
         }
 
