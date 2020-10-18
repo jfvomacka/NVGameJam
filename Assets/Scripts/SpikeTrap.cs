@@ -23,8 +23,8 @@ namespace Game
             Debug.Log(collision.transform.tag);
             if (collision.transform.tag == "Player")
             {
-                Debug.Log("Spiked!");
                 Destroy(collision.gameObject);
+                GameManager.instance.GameOver();
             }
         }
 
