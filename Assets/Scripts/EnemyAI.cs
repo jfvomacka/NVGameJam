@@ -41,5 +41,15 @@ namespace Game
             }
             
         }
+
+        public void OnCollisionEnter2D(Collision2D collision)
+        {
+            Debug.Log(collision.transform.tag);
+            if (collision.transform.tag == "Player")
+            {
+                Destroy(collision.gameObject);
+                GameManager.instance.GameOver();
+            }
+        }
     }
 }
