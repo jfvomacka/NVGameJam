@@ -19,6 +19,7 @@ namespace Game
         private bool doingSetup = true;                         //Boolean to check if we're setting up board, prevent Player from moving during setup.
 
         private GameObject playerObj;
+        public GameObject completeUI;
 
         //Awake is always called before any Start functions
         void Awake()
@@ -86,6 +87,12 @@ namespace Game
         {
 
             Debug.Log("Dead!");
+        }
+
+        public void GameWin()
+        {
+            completeUI.SetActive(true);
+            Debug.Log("Win!");
         }
 
         public bool GameIsOver()
