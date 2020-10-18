@@ -4,5 +4,11 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Scenes/MenuScene.unity
+    guid: 57fe9d493e4236844a3028b3eed546e5
+  - enabled: 1
+    path: Assets/Scenes/FirstLevel SpikeTrap.unity
+    guid: 1d2e7e158bfb3bd40a8fd0cac6f034f6
   m_configObjects: {}
