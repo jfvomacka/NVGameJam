@@ -29,6 +29,8 @@ namespace Game
 
         private Animator animator;
 
+        public int lives;
+
         [SerializeField]
         private AudioSource teleportSource;
 
@@ -61,6 +63,8 @@ namespace Game
             material = GetComponent<Renderer>().sharedMaterial;
 
             START_POS = new Vector3(transform.position.x, transform.position.y, transform.position.z);
+
+            lives = 5;
         }
 
         // Update is called once per frame
@@ -89,21 +93,22 @@ namespace Game
 
         public void Restart()
         {
-            transform.position = START_POS;
-            teleportSource.Play();
+            lives--;
+            if(lives > 0)
+            {
+                transform.position = START_POS;
+                teleportSource.Play();
+            }
+            else
+            {
+                Debug.Log("Dead!");
+            }
         }
 
         private void Move()
         {
             transform.Translate(direction * speed * Time.deltaTime);
-
-            /*
-            List<Enemy> enemies = GameManager.instance.GetEnemies();
-            for(int i = 0; i < enemies.Count; i++)
-            {
             
-            }
-            */
         }
 
         private void MoveTeleport()
@@ -135,10 +140,7 @@ namespace Game
 
             teleport = Input.GetKey(KeyCode.Space);
         }
-        private void SetAnimation()
-        {
-            animator.SetFloat("xDir", direction.x);
-            animator.SetFloat("yDir", direction.y);
-        } 
+        
+
     }
 }
