@@ -8971,6 +8971,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: GameManager
       objectReference: {fileID: 0}
+    - target: {fileID: 8109050965636797350, guid: 9dc778028409eaa4bacd5a1c28740646,
+        type: 3}
+      propertyPath: music
+      value: 
+      objectReference: {fileID: 1735816758}
     - target: {fileID: 8109050965636797351, guid: 9dc778028409eaa4bacd5a1c28740646,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -12069,7 +12074,7 @@ Tilemap:
     second:
       serializedVersion: 2
       m_TileIndex: 4
-      m_TileSpriteIndex: 4
+      m_TileSpriteIndex: 7
       m_TileMatrixIndex: 0
       m_TileColorIndex: 0
       m_TileObjectToInstantiateIndex: 65535
@@ -13833,17 +13838,17 @@ Tilemap:
     m_Data: {fileID: 0}
   - m_RefCount: 0
     m_Data: {fileID: 0}
-  - m_RefCount: 1
-    m_Data: {fileID: -7791257464352952234, guid: 41bb5e907022ee1438eeef58dcf0810b,
-      type: 3}
+  - m_RefCount: 0
+    m_Data: {fileID: 0}
   - m_RefCount: 6
     m_Data: {fileID: -3092128638764847830, guid: 41bb5e907022ee1438eeef58dcf0810b,
       type: 3}
   - m_RefCount: 10
     m_Data: {fileID: -2945321088642010530, guid: 41bb5e907022ee1438eeef58dcf0810b,
       type: 3}
-  - m_RefCount: 0
-    m_Data: {fileID: 0}
+  - m_RefCount: 1
+    m_Data: {fileID: -7791257464352952234, guid: 41bb5e907022ee1438eeef58dcf0810b,
+      type: 3}
   - m_RefCount: 3
     m_Data: {fileID: 8141785045709250685, guid: 41bb5e907022ee1438eeef58dcf0810b,
       type: 3}
@@ -14083,6 +14088,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 3
   teleportCooldown: 3
+  lives: 0
   teleportSource: {fileID: 1735816758}
 --- !u!212 &1184732056
 SpriteRenderer:
