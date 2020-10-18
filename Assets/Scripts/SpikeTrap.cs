@@ -18,15 +18,15 @@ namespace Game
 
         }
 
-        void OnTriggerEnter(Collider other)
+        private void OnCollisionEnter2D(Collision2D collision)
         {
-            Debug.Log(other.tag);
-            if (other.tag == "Player")
+            Debug.Log(collision.transform.tag);
+            if (collision.transform.tag == "Player")
             {
                 Debug.Log("Spiked!");
-                Game.PlayerMovement p = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerMovement>();
-                p.Die();
+                Destroy(collision.gameObject);
             }
         }
+
     }
 }
