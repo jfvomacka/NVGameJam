@@ -13,7 +13,7 @@ namespace Game
         public TextMeshProUGUI nameText;
         public TextMeshProUGUI dialogueText;
 
-        public Animator animator;
+        //public Animator animator;
 
         private Queue<string> sentences;
 
@@ -25,7 +25,6 @@ namespace Game
 
         public void StartDialogue(Dialogue dialogue)
         {
-            animator.SetBool("IsOpen", true);
 
             nameText.text = dialogue.name;
 
@@ -66,7 +65,6 @@ namespace Game
 
         void EndDialogue()
         {
-            animator.SetBool("IsOpen", false);
             SceneManager.LoadScene(1);
         }
     }
