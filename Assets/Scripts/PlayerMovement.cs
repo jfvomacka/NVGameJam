@@ -19,7 +19,6 @@ namespace Game
         private bool teleportedLastFrame;
         private const float TELEPORT_DISTANCE = 3.0f;
 
-        [SerializeField]
         private float teleportCooldown = 3.0f;
         private float dissolveAmount = 0.0f;
         private float startDissolve = 0.0f;
@@ -96,8 +95,10 @@ namespace Game
             lives--;
             if(lives > 0)
             {
+                dissolveAmount = 1.00f;
                 transform.position = START_POS;
                 teleportSource.Play();
+                teleportCooldown = 0.0f;
             }
             else
             {
