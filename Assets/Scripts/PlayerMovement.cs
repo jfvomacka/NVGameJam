@@ -45,7 +45,7 @@ namespace Game
             teleportedLastFrame = false;
             teleportCooldown = 3f;
 
-            transform.localScale = new Vector3(2, 2, 2);
+            // transform.localScale = new Vector3(2, 2, 2);
             transform.position = new Vector3(0, 0, -1);
 
             animator = GetComponent<Animator>();
@@ -70,11 +70,7 @@ namespace Game
             teleportedLastFrame = teleport;
             teleportCooldown += Time.deltaTime;
 
-            SetAnimation();
-
-
-
-
+           // SetAnimation();
         }
 
         private void Move()
@@ -95,8 +91,6 @@ namespace Game
         
             transform.Translate(direction.normalized * TELEPORT_DISTANCE);
         }
-
-    
 
         private void TakeInput()
         {
@@ -121,7 +115,6 @@ namespace Game
 
             teleport = Input.GetKey(KeyCode.Space);
         }
-
         private void SetAnimation()
         {
             animator.SetFloat("xDir", direction.x);
