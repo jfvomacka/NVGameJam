@@ -23,6 +23,8 @@ namespace Game
         private float startDissolve = 0.0f;
         private float endDissolve = 1.0f;
 
+        private Vector3 START_POS;
+
         private Animator animator;
 
         private bool CanTeleport()
@@ -54,6 +56,8 @@ namespace Game
 
             animator = GetComponent<Animator>();
             material = GetComponent<Renderer>().sharedMaterial;
+
+            START_POS = transform.position;
         }
 
         // Update is called once per frame
@@ -78,6 +82,11 @@ namespace Game
             teleportCooldown += Time.deltaTime;
 
            // SetAnimation();
+        }
+
+        public void Restart()
+        {
+            transform.position = START_POS;
         }
 
         private void Move()

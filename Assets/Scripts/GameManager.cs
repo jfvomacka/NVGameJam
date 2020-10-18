@@ -84,7 +84,7 @@ namespace Game
         //GameOver is called when the player reaches 0 food points
         public void GameOver()
         {
-
+            /*
             //Disable this GameManager.
             enabled = false;
             //enemies.Clear();
@@ -96,6 +96,9 @@ namespace Game
             }
 
             Debug.Log("Game over!");
+            */
+
+            playerObj.GetComponent<PlayerMovement>().Restart();
         }
 
         public bool GameIsOver()
