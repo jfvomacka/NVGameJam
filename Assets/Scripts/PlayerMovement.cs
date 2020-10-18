@@ -29,6 +29,9 @@ namespace Game
 
         private Animator animator;
 
+        [SerializeField]
+        private AudioSource teleportSource;
+
         private bool CanTeleport()
         {
             Vector2 location = transform.position + (new Vector3(direction.normalized.x, direction.normalized.y, 0.0f) * TELEPORT_DISTANCE);
@@ -87,6 +90,7 @@ namespace Game
         public void Restart()
         {
             transform.position = START_POS;
+            teleportSource.Play();
         }
 
         private void Move()
@@ -105,6 +109,7 @@ namespace Game
         private void MoveTeleport()
         {
             transform.Translate(direction.normalized * TELEPORT_DISTANCE);
+            teleportSource.Play();
         }
 
         private void TakeInput()
