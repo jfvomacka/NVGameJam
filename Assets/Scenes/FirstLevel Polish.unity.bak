@@ -14343,7 +14343,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 3
   teleportCooldown: 3
+<<<<<<< HEAD
+  lives: 0
+=======
   lives: 3
+>>>>>>> adf2d67a3e62c4a179e67f49b0f93b762408175b
   teleportSource: {fileID: 1735816758}
   trail: {fileID: 279090099}
 --- !u!212 &1184732056
